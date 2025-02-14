@@ -1,0 +1,7 @@
+# env
+.env
+.env.dev
+
+# docker
+docker-compose.dev.yaml
+docker-compose.yml
