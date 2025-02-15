@@ -3,7 +3,6 @@ services:
     container_name: typebot-builder
     image: baptistearno/typebot-builder:latest
     restart: always
-
     ports:
       - '8083:3000'
     extra_hosts:
@@ -11,20 +10,26 @@ services:
     env_file: .env
     networks:
       - caddy_network
+    deploy:
+      resources:
+        limits:
+          memory: 512M
+          cpus: "0.5"
 
   typebot-viewer:
     container_name: typebot-viewer
     image: baptistearno/typebot-viewer:latest
-
     restart: always
     ports:
       - '8084:3000'
     env_file: .env
     networks:
       - caddy_network
-
-volumes:
-  db-data:
+    deploy:
+      resources:
+        limits:
+          memory: 512M
+          cpus: "0.5"
 
 networks:
   caddy_network:
