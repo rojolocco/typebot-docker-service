@@ -1,18 +1,18 @@
-# n8n Workflow Automation
+# Typebot
 
-This project provides a Docker setup for running n8n, a powerful workflow automation tool that allows you to connect various services and automate tasks.
+This project provides a Docker setup for running Typebot, an open-source tool designed for building conversational experiences and automating interactions.
 
 ## Description
 
-This repository contains Docker configurations to easily deploy n8n. n8n is an open-source workflow automation tool that enables you to create complex workflows by connecting different services and APIs without writing code.
+This repository contains Docker configurations to easily deploy Typebot. Typebot is an open-source conversational platform that allows you to create and manage chatbots and automated workflows without writing extensive code.
 
 ## Services
 
-- **n8n**: The main service that runs the n8n workflow automation tool.
-  - **Container Name**: auto
-  - **Image**: docker.n8n.io/n8nio/n8n
-  - **Ports**: Exposed on port (5678)
-  - **Volumes**: Data is persisted in `n8n_data` volume, mapped to `/home/node/.n8n`
+- **Typebot**: The main service that runs the Typebot application.
+  - **Container Name**: typebot
+  - **Image**: typebot/typebot
+  - **Ports**: Exposed on port (3000)
+  - **Volumes**: Data is persisted in `typebot_data` volume, mapped to `/app/typebot`
   - **Environment Variables**: Loaded from `.env`
   - **Restart Policy**: Always restart the container
   - **Resource Limits**: Memory limit of `1G` and CPU limit of `1`
@@ -21,46 +21,46 @@ This repository contains Docker configurations to easily deploy n8n. n8n is an o
 
 1. Clone the repository:
 
-   ```bash
-   git clone https://github.com/yourusername/your-repo.git
-   ```
+    ```bash
+    git clone https://github.com/yourusername/typebot.git
+    ```
 
 2. Navigate to the project directory:
 
-   ```bash
-   cd your-repo
-   ```
+    ```bash
+    cd typebot
+    ```
 
 3. Start the services using Docker Compose:
 
-   ```bash
-   docker-compose up -d
-   ```
+    ```bash
+    docker-compose up -d
+    ```
 
 ## Usage
 
-- Access n8n at [http://localhost:5678](http://localhost:5678) to create and manage your workflows.
+- Access Typebot at [http://localhost:3000](http://localhost:3000) to create and manage your conversational experiences.
 
 ## Contributing
 
 1. Fork the repository.
 2. Create a new branch:
 
-   ```bash
-   git checkout -b feature/YourFeature
-   ```
+    ```bash
+    git checkout -b feature/YourFeature
+    ```
 
 3. Make your changes and commit them:
 
-   ```bash
-   git commit -m "Add your message"
-   ```
+    ```bash
+    git commit -m "Add your message"
+    ```
 
 4. Push to the branch:
 
-   ```bash
-   git push origin feature/YourFeature
-   ```
+    ```bash
+    git push origin feature/YourFeature
+    ```
 
 5. Open a pull request.
 
