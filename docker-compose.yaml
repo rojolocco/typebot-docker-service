@@ -3,14 +3,14 @@ services:
     container_name: typebot-builder
     image: baptistearno/typebot-builder:latest
     restart: always
-    ports:
-      - '8084:3000'
+    # ports:
+    #   - '8084:3000'
     extra_hosts:
       - 'host.docker.internal:host-gateway'
     env_file: 
       - .env
     networks:
-      - caddy_network
+      - traefik_network
     deploy:
       resources:
         limits:
@@ -21,12 +21,12 @@ services:
     container_name: typebot-viewer
     image: baptistearno/typebot-viewer:latest
     restart: always
-    ports:
-      - '8085:3000'
+    # ports:
+    #   - '8085:3000'
     env_file: 
       - .env
     networks:
-      - caddy_network
+      - traefik_network
     deploy:
       resources:
         limits:
@@ -34,5 +34,5 @@ services:
           cpus: "0.5"
 
 networks:
-  caddy_network:
+  traefik_network:
     external: true
