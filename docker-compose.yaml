@@ -1,34 +1,23 @@
+x-typebot-common: &typebot-common
+  restart: always
+  networks:
+    - traefik_network
+  env_file: .env
+
 services:
   typebot-builder:
-    container_name: typebot-builder
-    image: baptistearno/typebot-builder:latest
-    restart: always
-    extra_hosts:
-      - 'host.docker.internal:host-gateway'
-    env_file: 
-      - .env
-    networks:
-      - traefik_network
-    deploy:
-      resources:
-        limits:
-          memory: 512M
-          cpus: "0.5"
+    <<: *typebot-common
+    image: baptistearno/typebot-builder:3.10.0
+    expose:
+      - 3000
 
   typebot-viewer:
-    container_name: typebot-viewer
-    image: baptistearno/typebot-viewer:latest
-    restart: always
-    env_file: 
-      - .env
-    networks:
-      - traefik_network
-    deploy:
-      resources:
-        limits:
-          memory: 512M
-          cpus: "0.5"
+    <<: *typebot-common
+    image: baptistearno/typebot-viewer:3.10.0
+    expose:
+      - 3000
 
 networks:
   traefik_network:
-    external: true
+    external:
+      true
