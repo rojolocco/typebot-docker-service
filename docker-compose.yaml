@@ -8,12 +8,14 @@ services:
   typebot-builder:
     <<: *typebot-common
     image: baptistearno/typebot-builder:3.10.0
+    container_name: typebot-builder
     expose:
       - 3000
 
   typebot-viewer:
     <<: *typebot-common
     image: baptistearno/typebot-viewer:3.10.0
+    container_name: typebot-viewer
     expose:
       - 3000
 
