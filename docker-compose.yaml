@@ -9,15 +9,15 @@ services:
     <<: *typebot-common
     image: baptistearno/typebot-builder:3.10.0
     container_name: typebot-builder
-    ports:
-      - "8080:3000"
+    expose:
+      - 3000
 
   typebot-viewer:
     <<: *typebot-common
     image: baptistearno/typebot-viewer:3.10.0
     container_name: typebot-viewer
-    ports:
-      - "8081:3000"
+    expose:
+      - 3000
 
 networks:
   traefik_network:
